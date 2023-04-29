@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Gauranti Bank</title>
+  <link rel="stylesheet" href="vendors/iconfonts/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-jrRScc+PzO7NYL6+yD/FL9Y4UsjG4V7OshQ2Zu6eSAb8EjWcix+HAG3q3XJSvYQ2FRyH+I0sqzDULjFgDBm0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="login.css">
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <div class="container">
+        <h1 class="text-center mb-5">Welcome Admin</h1>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card bg-light">
+              <div class="card-body">
+                <h4 class="card-title mb-4">Total Amount</h4>
+                <h2 class="card-text text-center" id="total-amount">54,000</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-6">
+            <div class="card bg-light">
+              <div class="card-body">
+                <h4 class="card-title mb-4">Add Amount:</h4>
+                <div class="form-group">
+                  <label for="add-amount">Enter amount to add:</label>
+                  <input type="text" class="form-control" id="add-amount">
+                </div>
+                <button type="button" class="btn btn-primary mt-3" id="add-amount-btn">Add</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card bg-light">
+              <div class="card-body">
+                <h4 class="card-title mb-4">Subtract Amount:</h4>
+                <div class="form-group">
+                  <label for="subtract-amount">Enter amount to subtract:</label>
+                  <input type="text" class="form-control" id="subtract-amount">
+                </div>
+                <button type="button" class="btn btn-primary mt-3" id="subtract-amount-btn">Subtract</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+   
+
+	<script src="js/admin.js"></script>
+    <!-- plugins:js -->
+    <script src="vendors/js/vendor.bundle.base.js"></script>
+    <script src="vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js"></script>
+    <script src="js/hoverable-collapse.js"></script>
+    <script src="js/misc.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="./js/transaction.js"></script>
+    <script src="./js/transaction-deposit.js"></script>
+    <script src="js/dashboard.js"></script>
+    <!-- End custom js for this page-->
+</body>
+<!-- Add Amount Error Modal -->
+<div class="modal fade" id="add-amount-error-modal" tabindex="-1" role="dialog" aria-labelledby="add-amount-error-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="add-amount-error-modal-label">Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Please enter a valid amount to add.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add Amount Success Modal -->
+  <div class="modal fade" id="add-amount-success-modal" tabindex="-1" role="dialog" aria-labelledby="add-amount-success-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="add-amount-success-modal-label">Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- Subtract Amount Error Modal -->
+<div class="modal fade" id="subtract-amount-error-modal" tabindex="-1" role="dialog" aria-labelledby="subtract-amount-error-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="subtract-amount-error-modal-label">Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Please enter a valid amount to subtract that is less than or equal to the current total amount.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Subtract Amount Success Modal -->
+  <div class="modal fade" id="subtract-amount-success-modal" tabindex="-1" role="dialog" aria-labelledby="subtract-amount-success-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="subtract-amount-success-modal-label">Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+</html>

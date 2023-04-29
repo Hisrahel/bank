@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauranti Bank</title>
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav role="navigation" class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+               <h1>Gauranti</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#toggle">
+                <span><i class="fa fa-bars icon"></i></span>
+                 <!-- <span class="navbar-toggler-icon icon"></span>  -->
+            </button>
+           <div class="navbar-collapse collapse" id="toggle" >    
+                <ul class="navbar-nav ml-auto">
+                   <button class="btn btn-corp active">Personal</button>
+                   <button class="btn btn-corp">Corporate</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-11">
+                    <p class="login">Login to Online Banking</p>
+                    <div class="card shadow">
+                        <span class="welcome">Welcome to Secure Banking</span>
+                        <span class="enter">Please enter your customer number or TR Identity number and your exclusive password.</span>
+
+                        <form action="login.html" method="post" class="form">
+                            <div>
+                                <label for=""><span>Customer / TR Identity Number</span></label> <br>
+                                    <input type="text" class="form-control" required>
+                                 <br> 
+    
+                                <label for="">Password</label> <br>
+                                    <input type="password" class="form-control" required>
+                               
+    
+                                <div class="rem">
+                                    <input type="checkbox" value="" required>
+                                <span class="pl-2"> Remember Me</span> <br>
+                                </div>
+                                 
+                                <input type="submit" value="LogIn To Online Banking">
+    
+                               <p class="pt-3">I forgot <a href="#" class="">my password</a></p>  
+    
+                                <a href="#" class="">
+                                    I want to set my password for the first time.
+                                </a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>
