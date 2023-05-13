@@ -22,22 +22,28 @@ $(document).ready(function() {
       let totalAmount = parseInt($('#total-amount').text().replace(/,/g, ''));
       if (amount > totalAmount) {
         $('#withdraw-insufficient-modal').modal('show');
-      } else {
+      }else {
+        // Generate random 5-digit OTP
+        let randomOTP = Math.floor(10000 + Math.random() * 90000);
+      
         // Display OTP as modal
         $('#otp-modal').modal('show');
-
+      
+        // Show random OTP on top of the modal
+        $('#otp-random-number').text(randomOTP);
+      
         // When user enters OTP
         $(document).on('click', '#otp-confirm', function() {
-          let otp = $('#otp-input').val();
-          // Validate OTP
-          if (otp && otp.length === 5) {
+          let enteredOTP = $('#otp-input').val();
+          // Validate entered OTP
+          if (enteredOTP && enteredOTP.length === 5 && enteredOTP === randomOTP.toString()) {
             // Ask user to confirm withdrawal
             $('#withdraw-confirmation-modal .modal-body p').text('Are you sure you want to withdraw ' + amount.toLocaleString() + '?');
             $('#withdraw-confirmation-modal').modal('show').on('hidden.bs.modal', function () {
               $('#withdraw-success-modal').modal('show');
             });
             $(document).on('click', '#withdraw-confirmation-confirm', function() {
-              // Deduct the amount from total amount
+              // Deduct the amount from the total amount
               totalAmount -= amount;
               // Update the total amount display and store the updated amount in local storage
               $('#total-amount').text(totalAmount.toLocaleString());
@@ -52,6 +58,7 @@ $(document).ready(function() {
           $('#otp-modal').modal('hide');
         });
       }
+      
       // Hide the popover
       $('#withdraw-btn').popover('hide');
     }
