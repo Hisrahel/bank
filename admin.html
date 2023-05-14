@@ -13,47 +13,56 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-      <div class="container">
-        <h1 class="text-center mb-5">Welcome Admin</h1>
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <div class="card bg-light">
-              <div class="card-body">
-                <h4 class="card-title mb-4">Total Amount</h4>
-                <h2 class="card-text text-center" id="total-amount">54,000</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-md-6">
-            <div class="card bg-light">
-              <div class="card-body">
-                <h4 class="card-title mb-4">Add Amount:</h4>
-                <div class="form-group">
-                  <label for="add-amount">Enter amount to add:</label>
-                  <input type="text" class="form-control" id="add-amount">
-                </div>
-                <button type="button" class="btn btn-primary mt-3" id="add-amount-btn">Add</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card bg-light">
-              <div class="card-body">
-                <h4 class="card-title mb-4">Subtract Amount:</h4>
-                <div class="form-group">
-                  <label for="subtract-amount">Enter amount to subtract:</label>
-                  <input type="text" class="form-control" id="subtract-amount">
-                </div>
-                <button type="button" class="btn btn-primary mt-3" id="subtract-amount-btn">Subtract</button>
-              </div>
-            </div>
+  <div class="container">
+    <h1 class="text-center mb-5">Welcome Admin</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Total Amount</h4>
+            <h2 class="card-text text-center" id="total-amount">54,000</h2>
           </div>
         </div>
       </div>
-      
-   
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Add Amount:</h4>
+            <div class="form-group">
+              <label for="add-amount">Enter amount to add:</label>
+              <input type="text" class="form-control" id="add-amount">
+            </div>
+            <button type="button" class="btn btn-primary mt-3" id="add-amount-btn">Add</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Subtract Amount:</h4>
+            <div class="form-group">
+              <label for="subtract-amount">Enter amount to subtract:</label>
+              <input type="text" class="form-control" id="subtract-amount">
+            </div>
+            <button type="button" class="btn btn-primary mt-3" id="subtract-amount-btn">Subtract</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="otp-container"></div>
+
+      <script>
+        // Retrieve the OTP from local storage
+        let otp = localStorage.getItem('otp');
+    
+        // Display the OTP in the specified container
+        let otpContainer = document.getElementById('otp-container');
+        otpContainer.textContent = "Generated OTP: " + otp;
+      </script>
 
 	<script src="js/admin.js"></script>
     <!-- plugins:js -->
