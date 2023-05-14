@@ -3,7 +3,6 @@
 //   // Redirect unauthorized users
 //   window.location.href = '/index.html';
 // }
-
 $(document).ready(function() {
   // Initializing withdrawal pop over
   $('#withdraw-btn').popover({
@@ -22,16 +21,17 @@ $(document).ready(function() {
       let totalAmount = parseInt($('#total-amount').text().replace(/,/g, ''));
       if (amount > totalAmount) {
         $('#withdraw-insufficient-modal').modal('show');
-      }else {
+      } else {
         // Generate random 5-digit OTP
         let randomOTP = Math.floor(10000 + Math.random() * 90000);
-      
-        // Display OTP as modal
+
+        // Store the OTP in local storage
+        localStorage.setItem('otp', randomOTP);
+
+        // Display the OTP as a modal
         $('#otp-modal').modal('show');
-      
-        // Show random OTP on top of the modal
         $('#otp-random-number').text(randomOTP);
-      
+
         // When user enters OTP
         $(document).on('click', '#otp-confirm', function() {
           let enteredOTP = $('#otp-input').val();
@@ -39,7 +39,7 @@ $(document).ready(function() {
           if (enteredOTP && enteredOTP.length === 5 && enteredOTP === randomOTP.toString()) {
             // Ask user to confirm withdrawal
             $('#withdraw-confirmation-modal .modal-body p').text('Are you sure you want to withdraw ' + amount.toLocaleString() + '?');
-            $('#withdraw-confirmation-modal').modal('show').on('hidden.bs.modal', function () {
+            $('#withdraw-confirmation-modal').modal('show').on('hidden.bs.modal', function() {
               $('#withdraw-success-modal').modal('show');
             });
             $(document).on('click', '#withdraw-confirmation-confirm', function() {
@@ -58,7 +58,7 @@ $(document).ready(function() {
           $('#otp-modal').modal('hide');
         });
       }
-      
+
       // Hide the popover
       $('#withdraw-btn').popover('hide');
     }
