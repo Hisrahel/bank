@@ -23,3 +23,10 @@ subtractAmountButton.addEventListener('click', function() {
   totalAmountElement.textContent = currentTotalAmount.toLocaleString();
   localStorage.setItem('totalAmount', currentTotalAmount);
 });
+
+
+function submitName() {
+  var name = document.getElementById("name").value;
+  localStorage.setItem("username", name);
+  updateDashboard();
+}

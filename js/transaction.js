@@ -64,3 +64,28 @@ $(document).ready(function() {
     }
   });
 });
+
+// retrieving the inputted username
+document.addEventListener("DOMContentLoaded", function() {
+  updateDashboard();
+  
+  // Listen for changes in localStorage
+  window.addEventListener('storage', function(event) {
+      if (event.key === 'username') {
+          updateDashboard();
+      }
+  });
+});
+
+function updateDashboard() {
+  var name = localStorage.getItem("username");
+  var usernameElement = document.getElementById("username");
+  usernameElement.textContent = name ? "Welcome, " + name : "";
+}
+
+// Function to reload dashboard.js
+function reloadDashboard() {
+  var script = document.createElement('script');
+  script.src = 'dashboard.js';
+  document.head.appendChild(script);
+}
